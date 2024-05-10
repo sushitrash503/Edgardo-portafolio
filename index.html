@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>Portafolio - Edgardo menjivar</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="">E M</a></div>
+            <ul class="links">
+                <li><a href="">About me</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+        <div class="dropdownmenu">
+            <ul class="links">
+                <li><a href="">About me</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="bloqueinicio">
+        <div>
+            <img src="/imagenes/imagenman.avif" alt="imagen-portafolio" class="imagen-portafolio">
+        </div>
+        <div>
+            <h1 class="titulo-portafolio">Edgardo Menjivar</h1>
+            <h2>Diseñador Grafico, Fotografo, Freelancer,<br>Programador y Creador de contenido.</h2>
+        </div>
+    </section>
+    <script>
+        const toggleBtn = document.querySelector(".toggle_btn");
+        const toggleBtnIcon = document.querySelector(".toggle_btn i"); // Agregué el punto antes de "toggle_btn i"
+        const dropDownMenu = document.querySelector(".dropdownmenu");
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+
+            toggleBtnIcon.className = isOpen // Cambié "classList" a "className"
+                ? 'fa-solid fa-xmark' // Agregué la parte "fa-solid" antes de "fa-xmark"
+                : 'fa-solid fa-bars';
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const aboutMeLink = document.querySelector(".links li:nth-child(1) a");
+            const galleryLink = document.querySelector(".links li:nth-child(2) a");
+            const contactLink = document.querySelector(".links li:nth-child(3) a");
+            const bloqueInicio = document.querySelector(".bloqueinicio");
+            const imagenPortafolio = document.querySelector(".imagen-portafolio");
+
+            aboutMeLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                cambiarContenido("About Me", "Edgardo Menjivar es un apasionado diseñador gráfico con un ojo meticuloso para el detalle y una creatividad sin límites. Graduado de la Universidad de Artes Creativas, ha dedicado los últimos cinco años a perfeccionar sus habilidades en diseño gráfico, desde la creación de identidades visuales hasta la producción de materiales impresos y digitales.", "https://cdn.pixabay.com/photo/2017/11/02/00/34/parrot-2909828_1280.jpg");
+            });
+
+            galleryLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                cambiarContenido("Gallery", "Aquí va el contenido de la galería.", "/imagenes/imagenman.avif");
+            });
+
+            contactLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                cambiarContenido("Contact", "Información de contacto aquí.", "/imagenes/imagenman.avif");
+            });
+
+            function cambiarContenido(titulo, contenido, imagen) {
+                bloqueInicio.innerHTML = `
+                    <div class="texto-animado">
+                        <h1 class="titulo-portafolio">${titulo}</h1>
+                        <h2 style="text-align: left; margin-left:15px;">${contenido}</h2>
+                    </div>
+                    <div class="imagen-animada">
+                        <img src="${imagen}" alt="imagen-portafolio" class="imagen-portafolio">
+                    </div>
+                `;
+                imagenPortafolio.src = imagen;
+            }
+        });
+    </script>
+</body>
+</html>

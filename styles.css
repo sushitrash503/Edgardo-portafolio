@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: #000000;
+}
+header{
+    position: relative; /* Ajusta la posición del encabezado */
+    z-index: 1; /* Asegura que el encabezado esté en la parte superior del apilamiento de elementos */
+}
+.imagen-portafolio{
+    width: 789px;
+    align-items: center;
+    mask-image: linear-gradient(
+        black 60%,
+        transparent
+        
+    );
+    animation: fadeIn 0.5s ease-out;
+}
+.bloqueinicio{
+    display: flex;
+    flex-direction: row;
+}
+.bloqueinicio h2{
+    color: gray;
+    animation: fadeIn 0.6s ease-out;
+}
+.bloqueinicio h1{
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 60px;
+    animation: fadeIn 0.8s ease-out;
+}
+a{
+    color: gray;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+a:hover{
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+button {
+    margin-top: 35px;
+    margin-left: 1rem;
+    background-color: black; /* Cambié el color de fondo a un verde más vibrante */
+    color: gray;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px dashed white ;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Añadí la transición para que el cambio de color sea más suave */
+}
+
+section{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.navbar{
+    padding: 1rem;
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    animation: fadeIn 0.5s ease-out;
+}
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: gray;
+    text-decoration: none;
+}
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn{
+    color: gray;
+    font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+}
+.action_btn{
+    background-color: orange;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.action_btn a{
+    color: #fff;
+}
+
+.action_btn:hover{
+    background-color: red;
+    color: orange;
+    scale: 1.05;
+    transition: all 0.3s ease;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+.dropdownmenu{
+    animation: fadeIn 0.5s ease-out;
+    position: absolute;
+    z-index: 1000;
+    top: 60px;
+    color: white;
+    width: 500px;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    padding: 1rem;
+    right: 2rem;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.dropdownmenu.open{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdownmenu li{
+    display: flex;
+    padding: 0.7rem;
+    align-items: center;
+    justify-content: center;
+}
+.dropdownmenu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.icons-logos{
+    color: white;
+    display: block;
+}
+/*About Me*/
+
+/* Estilos generales */
+.aboutme {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    background-image: url(/imagenes/backgound_galeria.png);
+}
+
+/* Estilos del título */
+.aboutme h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 55px;
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Estilos del bloque de contenido */
+.bloqueabout {
+    background-color: rgba(225, 225, 225, 0.1); /* Cambiado el valor de opacidad */
+    padding: 75px;
+    border-radius: 45px;
+    position: relative;
+  
+}
+/* CSS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.texto-animado {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.imagen-animada {
+    animation: fadeIn 0.5s ease-out;
+}
+
+
+
+/*Responsive*/
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+         display: none;
+     }
+     .navbar .toggle_btn{
+         display: block;
+    }
+    .dropdownmenu{
+         display: block;
+         color: #fff;
+     }
+     .icons{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icons-logos{
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+    .bloqueinicio{
+        flex-direction: column;
+        margin-top: -60px;
+    }
+    .imagen-portafolio{
+        width: 609px;
+        align-items: center;
+        mask-image: linear-gradient(
+            black 60%,
+            transparent
+        );
+    }
+    .bloqueinicio h2{
+        color: gray;
+        font-size: 20px;
+    }
+    .bloqueinicio h1{
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 55px;
+        
+    }
+}
+@media(max-width: 576px){
+    .dropdownmenu{
+        left: 2rem;
+        width: unset;
+        display: block;
+        height: max-content;
+        backdrop-filter: blur(15px);
+    transition: visibility 0s, opacity 0.3s ease;
+    }
+    .icons{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icons-logos{
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+    .bloqueinicio{
+        flex-direction: column;
+        margin-top: -60px;
+        margin-bottom: 45px;
+    }
+    .imagen-portafolio{
+        width: 450px;
+        height: calc( - 60px);
+        align-items: center;
+        mask-image: linear-gradient(black 60%,transparent);
+    }
+    .bloqueinicio h2{
+        color: gray;
+        font-size: 20px;
+    }
+    .bloqueinicio h1{
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        font-size: 55px;
+        
+        
+    }
+    .aboutme {
+        display: flex;
+        flex-direction: row;
+        background-color: black;
+        color: white;
+        background-image: url(/imagenes/backgound_galeria.png);
+    }
+    
+    /* Estilos del título */
+    /* Estilos del bloque de contenido */
+    .aboutme h1 {
+        font-family: "Roboto", sans-serif;
+        font-size: 45px;
+        margin: 0; /* Elimina el margen predeterminado */
+    }
+    .aboutme p{
+        font-size: 15px;
+    }
+    /* Estilos del bloque de contenido */
+    .bloqueabout {
+        background-color: rgba(225, 225, 225, 0.1); /* Cambiado el valor de opacidad */
+        padding: 75px;
+        position: relative;
+        border-radius: 0px;
+    }
+    .navbar .logo a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+    
+     
+}
